@@ -52,9 +52,9 @@ namespace BEERLabs.ProjectEsky.Tracking{
             RegisterLocalizationCallback(TrackerID, OnLocalization);            
             EnablePassthrough(TrackerID,UseExternalCameraPreview);
             StartTrackerThread(TrackerID, false);    
-            AfterInitialization();     
+            AfterInitialization();
             SetTextureInitializedCallback(TrackerID, OnTextureInitialized);     
-            UpdateNewFilterValues();            
+            UpdateNewFilterValues();
         }
         public override void AfterStart()
         {
@@ -86,13 +86,13 @@ namespace BEERLabs.ProjectEsky.Tracking{
         {
 
             base.AfterUpdate();
-            if(UseExternalCameraPreview){
+            if (UseExternalCameraPreview){
                 if(hasInitializedTexture){
                     ChangeCameraParam(textureWidth,textureHeight);
                     HookDeviceToIntel(TrackerID);
                     hasInitializedTexture = false;
                     hasInitializedTracker = true;
-/*                    if(textureChannels == 4){
+                    if (textureChannels == 4){
                         tex = new RenderTexture(textureWidth,textureHeight,0,RenderTextureFormat.BGRA32);
                         tex.Create();
                         SetRenderTexturePointer(TrackerID, tex.GetNativeTexturePtr());
@@ -116,7 +116,7 @@ namespace BEERLabs.ProjectEsky.Tracking{
                     if(doesSubscribe){
                         doesSubscribe = false;
                         SubscribeCallback(TrackerID,GetImage);  
-                    }*/
+                    }
                 }
             }
             else{
